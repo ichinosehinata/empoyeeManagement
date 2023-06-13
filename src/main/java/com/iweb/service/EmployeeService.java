@@ -83,6 +83,7 @@ public class EmployeeService {
                 Print.write("删除异常，即将返回上一页面");
             }
         }else{
+
             Print.write("输入的信息中包含不是数字的字符，请重新输入");
         }
         EmployeeView.employeeManagementView();
