@@ -68,8 +68,8 @@ public class EmployeeService {
         for (Employee e:employeeList) {
             Print.write("编号:"+e.getEid()+"\t部门名:"+e.getEName()+"\t身份证号"+
                     e.getEidNumber()+"\t手机号"+e.getEPhone()+"\t性别"+e.getESex()+
-                    "\t部门名"+departmentDao.queryById(e.getDepartment().getDid()).getDName()+
-                    "\t职位名"+postDao.queryById(e.getPost().getPid()).getPName());
+                    "\t部门名"+e.getDepartment().getDName()+
+                    "\t职位名"+e.getPost().getPName());
         }
     }
 
@@ -90,46 +90,47 @@ public class EmployeeService {
 
     public static void updateEmployee(Employee e){
         if (e.getEName()!=null){
+            System.out.println(1);
             Employee original = employeeDao.queryById(e.getEid());
             e.setEidNumber(original.getEidNumber());
             e.setEPhone(original.getEPhone());
             e.setESex(original.getESex());
             e.setDepartment(departmentDao.queryById(original.getDepartment().getDid()));
             e.setPost(postDao.queryById(original.getPost().getPid()));
-        }
-        if (e.getEidNumber()!=null){
+        }else if (e.getEidNumber()!=null){
+            System.out.println(1);
             Employee original = employeeDao.queryById(e.getEid());
             e.setEName(original.getEName());
             e.setEPhone(original.getEPhone());
             e.setESex(original.getESex());
             e.setDepartment(departmentDao.queryById(original.getDepartment().getDid()));
             e.setPost(postDao.queryById(original.getPost().getPid()));
-        }
-        if (e.getEPhone()!=null){
+        }else if (e.getEPhone()!=null){
+            System.out.println(1);
             Employee original = employeeDao.queryById(e.getEid());
             e.setEidNumber(original.getEidNumber());
             e.setEName(original.getEName());
             e.setESex(original.getESex());
             e.setDepartment(departmentDao.queryById(original.getDepartment().getDid()));
             e.setPost(postDao.queryById(original.getPost().getPid()));
-        }
-        if (e.getESex()!=null){
+        }else if (e.getESex()!=null){
+            System.out.println(1);
             Employee original = employeeDao.queryById(e.getEid());
             e.setEidNumber(original.getEidNumber());
             e.setEPhone(original.getEPhone());
             e.setEName(original.getEName());
             e.setDepartment(departmentDao.queryById(original.getDepartment().getDid()));
             e.setPost(postDao.queryById(original.getPost().getPid()));
-        }
-        if (e.getDepartment()!=null){
+        }else if (e.getDepartment()!=null){
+            System.out.println(1);
             Employee original = employeeDao.queryById(e.getEid());
             e.setEidNumber(original.getEidNumber());
             e.setEPhone(original.getEPhone());
             e.setESex(original.getESex());
             e.setEName(original.getEName());
             e.setPost(postDao.queryById(original.getPost().getPid()));
-        }
-        if (e.getPost()!=null){
+        }else if (e.getPost()!=null){
+            System.out.println(1);
             Employee original = employeeDao.queryById(e.getEid());
             e.setEidNumber(original.getEidNumber());
             e.setEPhone(original.getEPhone());

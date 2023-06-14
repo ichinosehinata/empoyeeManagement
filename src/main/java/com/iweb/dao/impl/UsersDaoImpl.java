@@ -149,7 +149,7 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public boolean deleteUserById(Users users) {
+    public synchronized boolean deleteUserById(Users users) {
         boolean flag=false;
         Connection c=Main.connectionPool.getConnection();
         String sql="delete from users where uid=?";
@@ -187,7 +187,7 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public boolean deleteUserByUsername(Users users) {
+    public synchronized boolean deleteUserByUsername(Users users) {
         boolean flag=false;
         Connection c=Main.connectionPool.getConnection();
         String sql="delete from users where username=?";
@@ -204,7 +204,7 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public boolean updateUser(Users users) {
+    public synchronized boolean updateUser(Users users) {
         boolean flag=false;
         Connection c=Main.connectionPool.getConnection();
         String sql="update users set username=?,password=? where uid=?";

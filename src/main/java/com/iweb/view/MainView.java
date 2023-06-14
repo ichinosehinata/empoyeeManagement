@@ -90,13 +90,13 @@ public class MainView {
     public static void ordinaryUserLoginSucceedView(){
         Print.write("尊敬的用户"+ServerThread.currentUser.getUsername()+(",欢迎您"));
         Print.write("请输入您想访问的功能");
-        Print.write("1.用户管理");
-        Print.write("2.公告管理");
-        Print.write("3.升级管理员");
-        Print.write("4.退出");
+        Print.write("1.查询当前用户");
+        Print.write("2.查询公告");
+        Print.write("3.退出");
         String str=Print.read();
         MainController.ordinaryUserFunctionController(str);
     }
+
 
     /**
      * 注册页面

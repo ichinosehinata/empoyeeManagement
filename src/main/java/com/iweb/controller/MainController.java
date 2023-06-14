@@ -83,18 +83,15 @@ public class MainController {
         //根据key的值 决定后续的跳转页面
         switch (key) {
             case "1":
-//                跳转到用户管理页面
-                Print.write("即将跳转到用户管理页面...");
+//                跳转到查询当前用户
+               UserService.ordinaryUserQuery();
                 break;
             case "2":
-//                跳转到公告管理页面
-                Print.write("即将跳转到公告管理页面...");
+//                跳转到公告查询页面
+                Print.write("即将跳转到公告查询页面...");
+                AnnouncementView.ordinaryUserAnnouncementInquiryView();
                 break;
             case "3":
-//                跳转到升级管理员页面
-                Print.write("即将跳转到升级管理员页面...");
-                break;
-            case "4":
                 try {
                     ServerThread.socket.close();
                 } catch (IOException e) {

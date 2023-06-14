@@ -48,6 +48,12 @@ public class UserService {
         }
     }
 
+    public static void ordinaryUserQuery(){
+        Print.write("用户编号："+ServerThread.currentUser.getUid()+
+                "\t用户名:"+ServerThread.currentUser.getUsername());
+        MainView.ordinaryUserLoginSucceedView();
+    }
+
     /**根据id删除用户
      * @param str 传入需要删除的用户id
      */

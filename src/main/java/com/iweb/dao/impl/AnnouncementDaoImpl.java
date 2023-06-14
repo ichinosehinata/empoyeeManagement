@@ -79,7 +79,7 @@ public class AnnouncementDaoImpl implements AnnouncementDao {
     }
 
     @Override
-    public boolean deleteAnnouncement(int id) {
+    public synchronized boolean deleteAnnouncement(int id) {
         boolean flag=false;
         Connection c= Main.connectionPool.getConnection();
         String sql="delete from announcement where aid=?";
@@ -98,7 +98,7 @@ public class AnnouncementDaoImpl implements AnnouncementDao {
     }
 
     @Override
-    public boolean updateAnnouncement(Announcement a) {
+    public synchronized boolean updateAnnouncement(Announcement a) {
         boolean flag=false;
         Connection c= Main.connectionPool.getConnection();
         String sql="update announcement set aname=?,acontent=? where aid=?";
@@ -106,8 +106,8 @@ public class AnnouncementDaoImpl implements AnnouncementDao {
                 PreparedStatement ps=c.prepareStatement(sql);
         ){
             ps.setString(1,a.getAName());
-            ps.setString(1,a.getAContext());
-            ps.setInt(1, a.getAid());
+            ps.setString(2,a.getAContext());
+            ps.setInt(3, a.getAid());
             ps.execute();
             flag=ps.getUpdateCount()>=1;
         }catch (SQLException e){

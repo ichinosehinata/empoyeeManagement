@@ -79,7 +79,7 @@ public class PostDaoImpl implements PostDao {
     }
 
     @Override
-    public boolean deletePost(int id) {
+    public synchronized boolean deletePost(int id) {
         boolean flag=false;
         Connection c= Main.connectionPool.getConnection();
         String sql="delete from post where pid=?";
@@ -98,7 +98,7 @@ public class PostDaoImpl implements PostDao {
     }
 
     @Override
-    public boolean updatePost(Post p) {
+    public synchronized boolean updatePost(Post p) {
         boolean flag=false;
         Connection c= Main.connectionPool.getConnection();
         String sql="update post set pname=? where pid=?";

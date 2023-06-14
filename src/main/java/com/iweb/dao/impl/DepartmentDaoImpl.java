@@ -77,7 +77,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
-    public boolean deleteDepartment(int id) {
+    public synchronized boolean deleteDepartment(int id) {
         boolean flag=false;
         Connection c= Main.connectionPool.getConnection();
         String sql="delete from department where did=?";
@@ -96,7 +96,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
-    public boolean updateDepartment(Department d) {
+    public synchronized boolean updateDepartment(Department d) {
         boolean flag=false;
         Connection c= Main.connectionPool.getConnection();
         String sql="update department set dname=? where did=?";

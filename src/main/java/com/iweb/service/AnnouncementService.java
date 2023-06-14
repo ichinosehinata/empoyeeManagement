@@ -34,14 +34,12 @@ public class AnnouncementService {
         for (Announcement a :announcementList) {
             Print.write("编号:"+a.getAid()+"\t公告名:"+a.getAName()+"\t公告内容"+a.getAContext());
         }
-        AnnouncementView.adminAnnouncementManagement();
     }
     public static void announcementFuzzyQuery(String str){
         List<Announcement> announcementList = announcementDao.queryAnnouncementByStr(str);
         for (Announcement a:announcementList) {
             Print.write("编号:"+a.getAid()+"\t公告名:"+a.getAName()+"\t公告内容"+a.getAContext());
         }
-        AnnouncementView.adminAnnouncementManagement();
     }
 
     public static void deleteAnnouncement(String str){

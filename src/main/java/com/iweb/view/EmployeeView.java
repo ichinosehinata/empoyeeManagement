@@ -24,6 +24,7 @@ public class EmployeeView {
         Print.write("2.查询员工");
         Print.write("3.删除员工");
         Print.write("4.修改员工");
+        Print.write("5.返回上一步");
         String str=Print.read();
         EmployeeController.employeeManagementController(str);
     }
@@ -56,6 +57,7 @@ public class EmployeeView {
         Print.write("请输入字符串进行模糊查询");
         String str= Print.read();
         EmployeeService.employeeFuzzyQuery(str);
+        EmployeeView.employeeManagementView();
     }
     public static void deleteEmployeeView(){
         Print.write("请输入需要删除的编号:");

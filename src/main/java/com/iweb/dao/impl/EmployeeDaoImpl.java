@@ -107,7 +107,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public boolean deleteEmployee(int id) {
+    public synchronized boolean deleteEmployee(int id) {
         boolean flag=false;
         Connection c= Main.connectionPool.getConnection();
         String sql="delete from employee where eid=?";
@@ -126,7 +126,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public boolean updateEmployee(Employee e) {
+    public synchronized boolean updateEmployee(Employee e) {
         boolean flag=false;
         Connection c= Main.connectionPool.getConnection();
         String sql="update employee set ename=?,eidnumber=?,ephone=?,esex=?,did=?,pid=? where eid=?";

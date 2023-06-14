@@ -21,6 +21,7 @@ public class AnnouncementView {
         Print.write("2.查询公告");
         Print.write("3.删除公告");
         Print.write("4.修改公告");
+        Print.write("5.返回上一步");
         String str=Print.read();
         AnnouncementController.announcementManagementController(str);
     }
@@ -39,6 +40,16 @@ public class AnnouncementView {
         Print.write("3.返回上一步");
         String str=Print.read();
         AnnouncementController.announcementInquiryController(str);
+        AnnouncementView.adminAnnouncementManagement();
+    }
+
+    public static void ordinaryUserAnnouncementInquiryView() {
+        Print.write("1.查询所有公告");
+        Print.write("2.模糊查询");
+        Print.write("3.返回上一步");
+        String str = Print.read();
+        AnnouncementController.announcementInquiryController(str);
+        MainView.ordinaryUserLoginSucceedView();
     }
     public static void announcementFuzzyQueryView(){
         Print.write("请输入字符串进行模糊查询");

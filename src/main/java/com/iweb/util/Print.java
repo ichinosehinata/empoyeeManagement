@@ -1,9 +1,8 @@
 package com.iweb.util;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.iweb.view.Main;
+
+import java.io.*;
 
 /**
  * @author ichinose
@@ -15,19 +14,13 @@ public class Print {
     static DataInputStream dis;
     static DataOutputStream dos;
 
-    static {
-        try {
-            os = ServerThread.socket.getOutputStream();
-            dos = new DataOutputStream(os);
-            is=ServerThread.socket.getInputStream();
-            dis=new DataInputStream(is);
-        }catch (Exception e){
-
-        }
-    }
     public static void write(String printMessage){
         try {
-            dos.writeUTF(printMessage);
+            if (Main.map.get(Thread.currentThread()).isConnected()) {
+                os = Main.map.get(Thread.currentThread()).getOutputStream();
+                dos = new DataOutputStream(os);
+                dos.writeUTF(printMessage);
+            }
         }catch (Exception e){
 
         }
@@ -36,6 +29,8 @@ public class Print {
     public static String read(){
         String str="";
         try{
+            is=Main.map.get(Thread.currentThread()).getInputStream();
+            dis=new DataInputStream(is);
             str=dis.readUTF();
         }catch (Exception e){
 
